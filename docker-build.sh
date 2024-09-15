@@ -48,7 +48,7 @@ prepare_extra_common() {
         --enable-{shared,extra-encodings} \
         --with-pic
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/iconv
-    echo "iconv${TARGET_DIR}/lib/libiconv.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "iconv${TARGET_DIR}/lib/libiconv.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
@@ -61,7 +61,7 @@ prepare_extra_common() {
         --prefix=${TARGET_DIR} \
         --shared
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/zlib
-    echo "zlib${TARGET_DIR}/lib/libz.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "zlib${TARGET_DIR}/lib/libz.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
 
@@ -81,7 +81,7 @@ prepare_extra_common() {
         --enable-shared \
         --without-python
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/libxml2
-    echo "libxml2${TARGET_DIR}/lib/libxml2.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "libxml2${TARGET_DIR}/lib/libxml2.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
 
@@ -96,7 +96,7 @@ prepare_extra_common() {
         --enable-shared \
         --disable-static
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/freetype
-    echo "freetype${TARGET_DIR}/lib/libfreetype.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "freetype${TARGET_DIR}/lib/libfreetype.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
 
@@ -113,7 +113,7 @@ prepare_extra_common() {
     meson configure fribidi_build
     ninja -j$(nproc) -C fribidi_build install
     cp -a ${TARGET_DIR}/lib/libfribidi.so* ${SOURCE_DIR}/fribidi
-    echo "fribidi/libfribidi.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "fribidi/libfribidi.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
 
     # FONTCONFIG
@@ -133,7 +133,7 @@ prepare_extra_common() {
         --disable-{static,docs} \
         --enable-{shared,libxml2,iconv}
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/fontconfig
-    echo "fontconfig${TARGET_DIR}/lib/libfontconfig.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "fontconfig${TARGET_DIR}/lib/libfontconfig.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
@@ -153,7 +153,7 @@ prepare_extra_common() {
     meson configure harfbuzz_build
     ninja -j$(nproc) -C harfbuzz_build install
     cp -a ${TARGET_DIR}/lib/libharfbuzz.so* ${SOURCE_DIR}/harfbuzz
-    echo "harfbuzz/libharfbuzz.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "harfbuzz/libharfbuzz.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
 
     # LIBASS
@@ -168,7 +168,7 @@ prepare_extra_common() {
         --disable-static \
         --with-pic
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/libass
-    echo "libass${TARGET_DIR}/lib/libass.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "libass${TARGET_DIR}/lib/libass.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
 
@@ -196,7 +196,7 @@ prepare_extra_common() {
         --with-combined-threads \
         --with-incoming-stack-boundary=2
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/fftw3
-    echo "fftw3${TARGET_DIR}/lib/libfftw3f.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "fftw3${TARGET_DIR}/lib/libfftw3f.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
@@ -218,7 +218,7 @@ prepare_extra_common() {
         -DFFT_LIB=fftw3f \
         ..
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/chromaprint
-    echo "chromaprint${TARGET_DIR}/lib/libchromaprint.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "chromaprint${TARGET_DIR}/lib/libchromaprint.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
@@ -230,7 +230,7 @@ prepare_extra_common() {
     ./autogen.sh
     ./configure --prefix=${TARGET_DIR} ${CROSS_OPT}
     make -j $(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/zimg
-    echo "zimg${TARGET_DIR}/lib/libzimg.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "zimg${TARGET_DIR}/lib/libzimg.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
 
@@ -248,7 +248,7 @@ prepare_extra_common() {
     meson configure dav1d_build
     ninja -j$(nproc) -C dav1d_build install
     cp -a ${TARGET_DIR}/lib/libdav1d.so* ${SOURCE_DIR}/dav1d
-    echo "dav1d/libdav1d.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "dav1d/libdav1d.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
 
     # SVT-AV1
@@ -271,7 +271,7 @@ prepare_extra_common() {
         -DBUILD_{TESTING,APPS,DEC}=OFF \
         ..
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/SVT-AV1
-    echo "SVT-AV1${TARGET_DIR}/lib/libSvtAv1Enc.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "SVT-AV1${TARGET_DIR}/lib/libSvtAv1Enc.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
 
@@ -284,7 +284,7 @@ prepare_extra_common() {
         --disable-{static,silent-rules} \
         --prefix=${TARGET_DIR} CFLAGS="-O3 -DNDEBUG" CXXFLAGS="-O3 -DNDEBUG" ${CROSS_OPT}
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/fdk-aac-stripped
-    echo "fdk-aac-stripped${TARGET_DIR}/lib/libfdk-aac.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "fdk-aac-stripped${TARGET_DIR}/lib/libfdk-aac.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
 }
@@ -334,8 +334,8 @@ prepare_extra_amd64() {
     ninja -j$(nproc) -C drm_build install
     cp -a ${TARGET_DIR}/lib/libdrm*.so* ${SOURCE_DIR}/libdrm
     cp ${TARGET_DIR}/share/libdrm/*.ids ${SOURCE_DIR}/libdrm
-    echo "libdrm/libdrm*.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
-    echo "libdrm/*.ids usr/lib/jellyfin-ffmpeg/share/libdrm" >> ${DPKG_INSTALL_LIST}
+    echo "libdrm/libdrm*.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
+    echo "libdrm/*.ids /var/packages/Jellyfin/target/share/libdrm" >> ${DPKG_INSTALL_LIST}
     popd
     popd
 
@@ -343,7 +343,7 @@ prepare_extra_amd64() {
     pushd ${SOURCE_DIR}
     git clone -b 2.22.0 --depth=1 https://github.com/intel/libva.git
     pushd libva
-    sed -i 's|secure_getenv("LIBVA_DRIVERS_PATH")|"/usr/lib/jellyfin-ffmpeg/lib/dri:/usr/lib/x86_64-linux-gnu/dri:/usr/lib/dri:/usr/local/lib/dri"|g' va/va.c
+    sed -i 's|secure_getenv("LIBVA_DRIVERS_PATH")|"/var/packages/Jellyfin/target/lib/dri:/usr/lib/x86_64-linux-gnu/dri:/usr/lib/dri:/usr/local/lib/dri"|g' va/va.c
     sed -i 's|secure_getenv("LIBVA_DRIVER_NAME")|secure_getenv("LIBVA_DRIVER_NAME_JELLYFIN")|g' va/va.c
     ./autogen.sh
     ./configure \
@@ -351,8 +351,8 @@ prepare_extra_amd64() {
         --enable-drm \
         --disable-{glx,x11,wayland,docs}
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/intel
-    echo "intel${TARGET_DIR}/lib/libva.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
-    echo "intel${TARGET_DIR}/lib/libva-drm.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "intel${TARGET_DIR}/lib/libva.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
+    echo "intel${TARGET_DIR}/lib/libva-drm.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
 
@@ -363,7 +363,7 @@ prepare_extra_amd64() {
     ./autogen.sh
     ./configure --prefix=${TARGET_DIR}
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/intel
-    echo "intel${TARGET_DIR}/bin/vainfo usr/lib/jellyfin-ffmpeg" >> ${DPKG_INSTALL_LIST}
+    echo "intel${TARGET_DIR}/bin/vainfo /var/packages/Jellyfin/target/bin" >> ${DPKG_INSTALL_LIST}
     popd
     popd
 
@@ -376,7 +376,7 @@ prepare_extra_amd64() {
     make -j$(nproc) && make install
     mkdir -p ${SOURCE_DIR}/intel/dri
     cp -a ${TARGET_DIR}/lib/dri/i965*.so ${SOURCE_DIR}/intel/dri
-    echo "intel/dri/i965*.so usr/lib/jellyfin-ffmpeg/lib/dri" >> ${DPKG_INSTALL_LIST}
+    echo "intel/dri/i965*.so /var/packages/Jellyfin/target/lib/dri" >> ${DPKG_INSTALL_LIST}
     popd
     popd
 
@@ -387,7 +387,7 @@ prepare_extra_amd64() {
     mkdir build && pushd build
     cmake -DCMAKE_INSTALL_PREFIX=${TARGET_DIR} ..
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/intel
-    echo "intel${TARGET_DIR}/lib/libigdgmm.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "intel${TARGET_DIR}/lib/libigdgmm.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
@@ -401,7 +401,7 @@ prepare_extra_amd64() {
     wget -q -O - https://github.com/Intel-Media-SDK/MediaSDK/commit/8fb9f5f.patch | git apply
     # fix ADI issue with VPL patch
     wget -q -O - https://github.com/intel/vpl-gpu-rt/commit/e025c82.patch | git apply
-    sed -i 's|MFX_PLUGINS_CONF_DIR "/plugins.cfg"|"/usr/lib/jellyfin-ffmpeg/lib/mfx/plugins.cfg"|g' api/mfx_dispatch/linux/mfxloader.cpp
+    sed -i 's|MFX_PLUGINS_CONF_DIR "/plugins.cfg"|"/var/packages/Jellyfin/target/lib/mfx/plugins.cfg"|g' api/mfx_dispatch/linux/mfxloader.cpp
     mkdir build && pushd build
     cmake -DCMAKE_INSTALL_PREFIX=${TARGET_DIR} \
           -DBUILD_RUNTIME=ON \
@@ -409,7 +409,7 @@ prepare_extra_amd64() {
           -DBUILD_TUTORIALS=OFF \
           ..
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/intel
-    echo "intel${TARGET_DIR}/lib/libmfxhw64.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "intel${TARGET_DIR}/lib/libmfxhw64.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
@@ -420,7 +420,7 @@ prepare_extra_amd64() {
     pushd ${SOURCE_DIR}
     git clone -b v2.13.0 --depth=1 https://github.com/intel/libvpl.git
     pushd libvpl
-    sed -i 's|ParseEnvSearchPaths(ONEVPL_PRIORITY_PATH_VAR, searchDirList)|searchDirList.push_back("/usr/lib/jellyfin-ffmpeg/lib")|g' libvpl/src/mfx_dispatcher_vpl_loader.cpp
+    sed -i 's|ParseEnvSearchPaths(ONEVPL_PRIORITY_PATH_VAR, searchDirList)|searchDirList.push_back("/var/packages/Jellyfin/target/lib")|g' libvpl/src/mfx_dispatcher_vpl_loader.cpp
     mkdir build && pushd build
     cmake -DCMAKE_INSTALL_PREFIX=${TARGET_DIR} \
           -DCMAKE_INSTALL_BINDIR=${TARGET_DIR}/bin \
@@ -431,7 +431,7 @@ prepare_extra_amd64() {
           -DBUILD_{TESTS,EXAMPLES,EXPERIMENTAL}=OFF \
           ..
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/intel
-    echo "intel${TARGET_DIR}/lib/libvpl.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "intel${TARGET_DIR}/lib/libvpl.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
@@ -450,7 +450,7 @@ prepare_extra_amd64() {
           -DMFX_ENABLE_{KERNELS,ENCTOOLS,AENC}=ON \
           ..
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/intel
-    echo "intel${TARGET_DIR}/lib/libmfx-gen* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "intel${TARGET_DIR}/lib/libmfx-gen* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
@@ -468,10 +468,10 @@ prepare_extra_amd64() {
           LIBVA_DRIVERS_PATH=${TARGET_DIR}/lib/dri \
           ..
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/intel
-    echo "intel${TARGET_DIR}/lib/libigfxcmrt.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "intel${TARGET_DIR}/lib/libigfxcmrt.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     mkdir -p ${SOURCE_DIR}/intel/dri
     cp -a ${TARGET_DIR}/lib/dri/iHD*.so ${SOURCE_DIR}/intel/dri
-    echo "intel/dri/iHD*.so usr/lib/jellyfin-ffmpeg/lib/dri" >> ${DPKG_INSTALL_LIST}
+    echo "intel/dri/iHD*.so /var/packages/Jellyfin/target/lib/dri" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
@@ -505,7 +505,7 @@ prepare_extra_amd64() {
         -DBUILD_WSI_{XCB,XLIB,WAYLAND}_SUPPORT=ON ..
     make -j$(nproc) && make install
     cp -a ${TARGET_DIR}/lib/libvulkan.so* ${SOURCE_DIR}/Vulkan-Loader
-    echo "Vulkan-Loader/libvulkan.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "Vulkan-Loader/libvulkan.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
@@ -533,7 +533,7 @@ prepare_extra_amd64() {
     ninja -j$(nproc)
     ninja install
     cp -a ${TARGET_DIR}/lib/libshaderc_shared.so* ${SOURCE_DIR}/shaderc
-    echo "shaderc/libshaderc_shared* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "shaderc/libshaderc_shared* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
@@ -587,14 +587,14 @@ prepare_extra_amd64() {
         cp -a ${TARGET_DIR}/lib/libvulkan_*.so ${SOURCE_DIR}/mesa
         cp -a ${TARGET_DIR}/lib/libVkLayer_MESA*.so ${SOURCE_DIR}/mesa
         cp -a ${TARGET_DIR}/lib/dri/radeonsi_drv_video.so ${SOURCE_DIR}/mesa
-        echo "mesa/lib*.so usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
-        echo "mesa/radeonsi_drv_video.so usr/lib/jellyfin-ffmpeg/lib/dri" >> ${DPKG_INSTALL_LIST}
+        echo "mesa/lib*.so /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
+        echo "mesa/radeonsi_drv_video.so /var/packages/Jellyfin/target/lib/dri" >> ${DPKG_INSTALL_LIST}
         cp ${TARGET_DIR}/share/drirc.d/*.conf ${SOURCE_DIR}/mesa
-        echo "mesa/*defaults.conf usr/lib/jellyfin-ffmpeg/share/drirc.d" >> ${DPKG_INSTALL_LIST}
+        echo "mesa/*defaults.conf /var/packages/Jellyfin/target/share/drirc.d" >> ${DPKG_INSTALL_LIST}
         cp ${TARGET_DIR}/share/vulkan/{icd.d,explicit_layer.d,implicit_layer.d}/*.json ${SOURCE_DIR}/mesa
-        echo "mesa/*icd.x86_64.json usr/lib/jellyfin-ffmpeg/share/vulkan/icd.d" >> ${DPKG_INSTALL_LIST}
-        echo "mesa/*overlay.json usr/lib/jellyfin-ffmpeg/share/vulkan/explicit_layer.d" >> ${DPKG_INSTALL_LIST}
-        echo "mesa/*device_select.json usr/lib/jellyfin-ffmpeg/share/vulkan/implicit_layer.d" >> ${DPKG_INSTALL_LIST}
+        echo "mesa/*icd.x86_64.json /var/packages/Jellyfin/target/share/vulkan/icd.d" >> ${DPKG_INSTALL_LIST}
+        echo "mesa/*overlay.json /var/packages/Jellyfin/target/share/vulkan/explicit_layer.d" >> ${DPKG_INSTALL_LIST}
+        echo "mesa/*device_select.json /var/packages/Jellyfin/target/share/vulkan/implicit_layer.d" >> ${DPKG_INSTALL_LIST}
         popd
     fi
 
@@ -616,7 +616,7 @@ prepare_extra_amd64() {
     meson configure placebo_build
     ninja -j$(nproc) -C placebo_build install
     cp -a ${TARGET_DIR}/lib/libplacebo.so* ${SOURCE_DIR}/libplacebo
-    echo "libplacebo/libplacebo* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "libplacebo/libplacebo* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
 }
 
@@ -636,7 +636,7 @@ prepare_extra_arm() {
         -DBUILD_TEST=OFF \
         ..
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/rkmpp
-    echo "rkmpp${TARGET_DIR}/lib/librockchip*.* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "rkmpp${TARGET_DIR}/lib/librockchip*.* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
@@ -656,7 +656,7 @@ prepare_extra_arm() {
     meson configure rkrga_build
     ninja -j$(nproc) -C rkrga_build install
     cp -a ${TARGET_DIR}/lib/librga.so* ${SOURCE_DIR}/rkrga
-    echo "rkrga/librga.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "rkrga/librga.so* /var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
     popd
 }
 
