@@ -6,7 +6,7 @@ set(CMAKE_CXX_COMPILER arm-linux-gnueabihf-g++)
 set(CMAKE_RANLIB arm-linux-gnueabihf-ranlib)
 set(CMAKE_AR arm-linux-gnueabihf-ar)
 
-set(CMAKE_FIND_ROOT_PATH /usr/bin /usr/lib/jellyfin-ffmpeg /usr/arm-linux-gnueabihf)
+set(CMAKE_FIND_ROOT_PATH /usr/bin /var/packages/Jellyfin/target /usr/arm-linux-gnueabihf)
 
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
