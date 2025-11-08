@@ -6,8 +6,8 @@ Uploaders: Jellyfin Packaging Team <packaging@jellyfin.org>
 Rules-Requires-Root: no
 Homepage: https://ffmpeg.org/
 Standards-Version: 4.2.1
-Vcs-Git: https://github.com/jellyfin/jellyfin-ffmpeg.git
-Vcs-Browser: https://github.com/jellyfin/jellyfin-ffmpeg
+Vcs-Git: https://github.com/zhangbo8418/jellyfin-ffmpeg.git
+Vcs-Browser: https://github.com/zhangbo8418/jellyfin-ffmpeg
 Build-Depends:
 # needed for dh
  debhelper,
