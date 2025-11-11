@@ -1,5 +1,5 @@
 ffmpeg var/packages/Jellyfin/target/bin
-ffprobe usr/lib/jellyfin-ffmpeg
+ffprobe var/packages/Jellyfin/target/bin
 libavcodec/libavcodec.so* var/packages/Jellyfin/target/lib
 libavdevice/libavdevice.so* var/packages/Jellyfin/target/lib
 libavfilter/libavfilter.so* var/packages/Jellyfin/target/lib
