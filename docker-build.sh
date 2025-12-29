@@ -661,7 +661,7 @@ prepare_extra_arm() {
         -DBUILD_TEST=OFF \
         ..
     make -j$(nproc) && make install && make install DESTDIR=${SOURCE_DIR}/rkmpp
-    echo "rkmpp${TARGET_DIR}/lib/librockchip*.* var/packages/Jellyfin/target/lib" >> ${DPKG_INSTALL_LIST}
+    echo "rkmpp${TARGET_DIR}/lib/librockchip_mpp.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
